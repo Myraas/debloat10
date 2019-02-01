@@ -1,0 +1,13 @@
+$whitelist = 
+    "WindowsAlarms|"`
+    +"WindowsCalculator|"`
+    +"MSPaint|"`
+    +"MicrosoftStickyNotes|"`
+    +"GetHelp|"`
+    +"WindowsStore|"`
+    +"WindowsCamera|"`
+    +"WindowsSoundRecorder|"`
+    +"Xbox.TCUI|"`
+    +"Windows.Photo"
+
+Get-AppxPackage -PackageTypeFilter Bundle | Where-Object Name -notmatch $whitelist | Remove-AppxPackage
