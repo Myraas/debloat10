@@ -34,7 +34,7 @@ foreach ($App in $AppArrayList) {
     }
     else {
         # Gather package names
-        $AppPackageFullName = Get-AppxPackage -Name $App.Name | Select-Object -ExpandProperty PackageFullName
+        $AppPackageFullName = Get-AppxPackage -Name $App.Name -AllUsers | Select-Object -ExpandProperty PackageFullName
         $AppProvisioningPackageName = Get-AppxProvisionedPackage -Online | Where-Object { $_.DisplayName -like $App.Name } | Select-Object -ExpandProperty PackageName
 
         # Attempt to remove AppxPackage
