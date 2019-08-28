@@ -41,7 +41,7 @@ foreach ($App in $AppArrayList) {
         if ($AppPackageFullName -ne $null) {
             try {
                 WriteLog -LogFile $LogFile -LineOfText  "Removing application package: $($App.Name)"
-                Remove-AppxPackage -Package $AppPackageFullName -ErrorAction Stop | Out-Null
+                Remove-AppxPackage -Package $AppPackageFullName -AllUsers -ErrorAction Stop | Out-Null
             }
             catch [System.Exception] {
                 WriteLog -LogFile $LogFile -LineOfText  "Removing AppxPackage failed: $($_.Exception.Message)"
